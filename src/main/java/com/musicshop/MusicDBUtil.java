@@ -203,4 +203,86 @@ public class MusicDBUtil {
 				
 				return isSuccess;
 			}
+			
+			public static boolean insertCustomer(String name, String username, String password) {
+				
+				isSuccess = false;
+				
+				try {
+			        con = DBConnect.getConnection();
+			        stmt = con.createStatement();
+			        
+			        String sql = "INSERT INTO user VALUES(0, '"+username+"', '"+name+"', '"+password+"', 1);";
+			        
+			        int rs = stmt.executeUpdate(sql);
+			        
+			        if (rs > 0) {
+			            isSuccess = true;
+			        } else {
+			            isSuccess = false;
+			        }
+			        
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    }
+			    
+			    return isSuccess;
+		
+			    }
+			
+			public static boolean getCustomer(String username){
+				
+				isSuccess = false;
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * FROM user WHERE username='"+username+"'";
+					rs = stmt.executeQuery(sql);
+					
+					if(rs.next()) {
+						
+						isSuccess = true;
+					}
+					
+				
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			}
+			
+			public static List<Customer> validateCustomer(String username, String password){
+				
+				ArrayList<Customer> customer = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * FROM user WHERE username='"+username+"' and password='"+password+"'";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int uid = rs.getInt(1);
+						String uname = rs.getString(2);
+						String name = rs.getString(3);
+						String pwd = rs.getString(4);
+						
+						Customer cus = new Customer(uid, uname, name, pwd);
+						
+						customer.add(cus);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return customer;
+			}
+			
+			
 		}

@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-icons.min.css">
 	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	
 </head>
 <body>
 
@@ -50,6 +51,19 @@
 		    
 		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+		      	
+		      	<c:if test="${empty sessionScope.customerList}">
+			      	<li class="nav-item"> 
+			          <a aria-current="page" href="http://localhost:8090/MusicStore/RegisterForm.jsp"><button type="button" id="regButton" class="btn btn-light">Register</button></a>
+			        </li>
+		        </c:if>
+		        
+		        <c:if test="${empty sessionScope.customerList}">
+		        <li class="nav-item"> 
+			         <a aria-current="page" href="http://localhost:8090/MusicStore/UserLogin.jsp"><button type="button" id="logButton" class="btn btn-light">Sign in</button></a>
+			      </li>
+		        </c:if>
+		        
 		        <li class="nav-item"> 
 		          <a class="nav-link active" aria-current="page" href="#">Home</a>
 		        </li>
@@ -78,14 +92,24 @@
 		        <img class="rounded-circle" src="images/06.jpg" style="width:40px;height:40px">
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		            Hi, John
+		            <c:forEach var="cus" items="${customerList}">
+		            	${cus.name}
+		            </c:forEach>
 		          </a>
 		          <ul class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="navbarDropdown">
 		            <li><a class="dropdown-item text-white" href="#"><i class="bi bi-person"></i> Profile</a></li>
 		            <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>
 		            <li><hr class="dropdown-divider"></li>
-		            <li><a class="dropdown-item text-white" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+		            
+		            <c:if test="${not empty sessionScope.customerList}">
+		            	<form method="get" action="main">
+		            	<input type="hidden" name="log" value="logout"/>
+		            	<li><input class="dropdown-item text-white" type="submit" value="Log out"/></li>
+		            	</form>
+		            </c:if>
+		            
 		          </ul>
+		          
 		        </li>
 		      </ul>
 		    </div>
