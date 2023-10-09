@@ -284,5 +284,32 @@ public class MusicDBUtil {
 				return customer;
 			}
 			
-			
+			public static List<Artists> getAllArtists(){
+				
+				ArrayList<Artists> AllArtists = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * From artist;";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int aid = rs.getInt(1);
+						String name = rs.getString(2);
+						String username = rs.getString(3);
+						String password = rs.getString(4);
+						
+						Artists all = new Artists(aid, name, username, password);
+						
+						AllArtists.add(all);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return AllArtists;
+			}
 		}
