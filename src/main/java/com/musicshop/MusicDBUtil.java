@@ -346,7 +346,7 @@ public class MusicDBUtil {
 			        con = DBConnect.getConnection();
 			        stmt = con.createStatement();
 			        
-			        String sql = "INSERT INTO artist VALUES(0, '"+username+"', '"+name+"', '"+password+"', 1);";
+			        String sql = "INSERT INTO artist VALUES(0, '"+name+"', '"+username+"', '"+password+"', 1);";
 			        
 			        int rs = stmt.executeUpdate(sql);
 			        
@@ -604,5 +604,59 @@ public class MusicDBUtil {
 				}
 				
 				return AllTerms;
+			}
+			
+			public static boolean getArtist(String username){
+				
+				isSuccess = false;
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * FROM artist WHERE username='"+username+"'";
+					rs = stmt.executeQuery(sql);
+					
+					if(rs.next()) {
+						
+						isSuccess = true;
+					}
+					
+				
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			}
+			
+			public static List<Artists> validateArtist(String username, String password){
+				
+				ArrayList<Artists> artist = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * FROM artist WHERE username='"+username+"' and password='"+password+"'";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int aid = rs.getInt(1);
+						String uname = rs.getString(3);
+						String name = rs.getString(2);
+						String pwd = rs.getString(4);
+						
+						Artists art = new Artists(aid, name, uname, pwd);
+						
+						artist.add(art);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return artist;
 			}
 		}

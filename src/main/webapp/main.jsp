@@ -69,7 +69,7 @@
 		          <a aria-current="page" href="http://localhost:8090/MusicStore/RegisterForm.jsp"><button type="button" id="regButton" class="btn btn-light mx-3">Register as an Artist</button></a>
 		        </li>
 		        <li class="nav-item">
-		          <a aria-current="page" href="http://localhost:8090/MusicStore/RegisterForm.jsp"><button type="button" id="regButton" class="btn btn-light mx-3">Artist Login</button></a>
+		          <a aria-current="page" href="http://localhost:8090/MusicStore/ArtistLogin.jsp"><button type="button" id="regButton" class="btn btn-light mx-3">Artist Login</button></a>
 		        </li>
 		       
 		        
