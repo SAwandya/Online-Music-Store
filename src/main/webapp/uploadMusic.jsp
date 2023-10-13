@@ -19,7 +19,7 @@
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse mx-4" id="navbarTogglerDemo01">
-		    <a class="navbar-brand" href="#">My Songs</a>
+		    <a class="navbar-brand" href="http://localhost:8090/MusicStore/Landing">My Songs</a>
 		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 		      <li class="nav-item active">
 		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>

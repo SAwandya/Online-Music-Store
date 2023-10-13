@@ -19,7 +19,7 @@
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse mx-3" id="navbarTogglerDemo01">
-		    <a class="navbar-brand" href="#">Admin Dashboard</a>
+		    <a class="navbar-brand" href="http://localhost:8090/MusicStore/GetArtistsServlet">Admin Dashboard</a>
 		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 		      <li class="nav-item active">
 		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -39,8 +39,8 @@
  	<div class="m-5 d-flex flex-row mb-2">
  		<h2>Artists</h2>
  		<div class="mx-4">
- 			<form class="form-inline my-2 my-lg-0 d-flex flex-row mb-2">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+ 			<form method="get" action="GetArtistsServlet" class="form-inline my-2 my-lg-0 d-flex flex-row mb-2">
+		      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
 		      <button class="btn btn-outline-success my-2 my-sm-0 mx-4" type="submit">Search</button>
 		    </form>
  		</div>
@@ -88,8 +88,8 @@
  	<div class="m-5 d-flex flex-row mb-2">
  		<h2>Terms and Conditions</h2>
  		<div class="mx-4">
- 			<form class="form-inline my-2 my-lg-0 d-flex flex-row mb-2">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+ 			<form method="get" action="GetArtistsServlet" class="form-inline my-2 my-lg-0 d-flex flex-row mb-2">
+		      <input class="form-control mr-sm-2" type="text" name="searchTerms" placeholder="Search" aria-label="Search">
 		      <button class="btn btn-outline-success my-2 my-sm-0 mx-4" type="submit">Search</button>
 		    </form>
  		</div>

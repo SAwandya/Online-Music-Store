@@ -18,6 +18,7 @@ public class getLibraryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String logout = request.getParameter("log");
+		String song = request.getParameter("search");
 		
 		if("logout".equals(logout)) {
 			
@@ -26,16 +27,38 @@ public class getLibraryServlet extends HttpServlet {
 			session.removeAttribute("customerList");
 		}
 		
+		
 		HttpSession session = request.getSession();
         List<Customer> customerList = (List<Customer>) session.getAttribute("customerList");
 		
+        if(song == null) {
+			
+        	List<Songs> AllSongs = MusicDBUtil.getAllSongs();
+        	 request.setAttribute("AllSongs", AllSongs);
+		}else {
+			
+			List<Songs> AllSongs = MusicDBUtil.searchSongs(song);
+			request.setAttribute("AllSongs", AllSongs);
+		}
+		
+        if (customerList != null) {
+            
+            for (Customer customer : customerList) {
+             
+                int id = customer.getUid();
+                List<Songs> LibraryDetails = MusicDBUtil.getSongLibraryDetails(id);
+                request.setAttribute("LibraryDetails", LibraryDetails);
+                
+            }}else {
+            	
+            	
+            }
+        
 		
 		
-		List<Songs> LibraryDetails = MusicDBUtil.getSongLibraryDetails(1);
-		List<Songs> AllSongs = MusicDBUtil.getAllSongs();
 		 
-		 request.setAttribute("LibraryDetails", LibraryDetails);
-		 request.setAttribute("AllSongs", AllSongs);
+		 
+		
 		 
 		 if (customerList != null) {
 	        

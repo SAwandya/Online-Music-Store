@@ -9,7 +9,7 @@
 	  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
 	  <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z"/>
 	</svg>
-	<title>Soundwave Template</title>
+	<title>Music store</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-icons.min.css">
 	<link rel="stylesheet" type="text/css" href="css/custom.css">
@@ -23,34 +23,32 @@
 		<nav class="mainnav shadow navbar-expand-lg navbar navbar-dark bg-dark fixed-top" style="min-width: 350px">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="#">
-		    	<i class="bi bi-soundwave"></i> Soundwave
-		    	<div style="font-size: 13px">Unleash your potential</div>
+		    	<i class="bi bi-soundwave"></i> Music store
+		    	
 		    </a>
 
 		    <div>
 			    <div class="input-group ">
-				  <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-				  <span class="bg-black text-white border-0 input-group-text" id="basic-addon2"><i class="bi bi-search"></i></span>
+			    <div class="mx-4">
+	 			<form action="main" mathod="post" class="form-inline my-2 my-lg-0 d-flex flex-row mb-2">
+			      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+			      <button class="btn btn-outline-success my-2 my-sm-0 mx-4" type="submit">Search</button>
+			    </form>
+ 		</div>
 				</div>
 			</div>
 
-			<div class="text-white h4 mx-3">
-				<a href="">
-					<i class="bi bi-facebook"></i>
-				</a>
-				<a href="">
-					<i class="bi bi-twitter"></i>
-				</a>
-				<a href="">
-					<i class="bi bi-instagram"></i>
-				</a>
-			</div>
+			
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
 		    
 		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+		      
+		      <li class="nav-item"> 
+		          <a class="nav-link active" aria-current="page" href="#">Home</a>
+		        </li>
 		      	
 		      	<c:if test="${empty sessionScope.customerList}">
 			      	<li class="nav-item"> 
@@ -59,23 +57,21 @@
 		        </c:if>
 		        
 		        <c:if test="${empty sessionScope.customerList}">
+		        
+		        
 		        <li class="nav-item"> 
 			         <a aria-current="page" href="http://localhost:8090/MusicStore/UserLogin.jsp"><button type="button" id="logButton" class="btn btn-light">Sign in</button></a>
 			      </li>
 		        </c:if>
 		        
-		        <li class="nav-item"> 
-		          <a class="nav-link active" aria-current="page" href="#">Home</a>
+		        
+		        <li class="nav-item">
+		          <a aria-current="page" href="http://localhost:8090/MusicStore/RegisterForm.jsp"><button type="button" id="regButton" class="btn btn-light mx-3">Register as an Artist</button></a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link" href="#">Discover</a>
+		          <a aria-current="page" href="http://localhost:8090/MusicStore/RegisterForm.jsp"><button type="button" id="regButton" class="btn btn-light mx-3">Artist Login</button></a>
 		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" href="#">Trending</a>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" href="#">New</a>
-		        </li>
+		       
 		        
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

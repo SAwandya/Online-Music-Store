@@ -549,4 +549,60 @@ public class MusicDBUtil {
 				
 				return song;
 			}
+			
+			public static List<Artists> searchArtists(String search){
+				
+				ArrayList<Artists> AllArtists = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * From artist where name LIKE '%"+search+"%' OR username LIKE '%"+search+"%';";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int aid = rs.getInt(1);
+						String name = rs.getString(2);
+						String username = rs.getString(3);
+						String password = rs.getString(4);
+						
+						Artists all = new Artists(aid, name, username, password);
+						
+						AllArtists.add(all);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return AllArtists;
+			}
+			
+			public static List<Terms> searchTerms(String desc){
+				
+				ArrayList<Terms> AllTerms = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * From terms WHERE description LIKE '%"+desc+"%';";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int tid = rs.getInt(1);
+						String des = rs.getString(2);
+						
+						Terms all = new Terms(tid, des);
+						
+						AllTerms.add(all);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return AllTerms;
+			}
 		}

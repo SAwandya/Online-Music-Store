@@ -6,7 +6,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/UploadLibararySevlet")
 public class UploadLibararySevlet extends HttpServlet {
@@ -19,8 +22,22 @@ public class UploadLibararySevlet extends HttpServlet {
 		int convertedId = Integer.parseInt(sid);
 		
 		 boolean isTrue;
+		 
+		 HttpSession session = request.getSession();
+	     List<Customer> customerList = (List<Customer>) session.getAttribute("customerList");
+	     
+	     if (customerList != null) {
+	            
+	            for (Customer customer : customerList) {
+	             
+	                int id = customer.getUid();
+	                isTrue = MusicDBUtil.insertToLibrary(convertedId, id);
+	                //List<Songs> LibraryDetails = MusicDBUtil.getSongLibraryDetails(id);
+	                //request.setAttribute("LibraryDetails", LibraryDetails);
+	                
+	            }}
 			
-			isTrue = MusicDBUtil.insertToLibrary(convertedId, 1);
+			
 			
 			if(isTrue = true) {
 				response.sendRedirect(request.getContextPath() + "/main");
