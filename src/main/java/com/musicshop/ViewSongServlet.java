@@ -14,14 +14,28 @@ public class ViewSongServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+			
+			 String song = request.getParameter("search");
+			 
+			 if(song == null){
+				 
+				 List<Songs> songDetails = MusicDBUtil.getSongDetails();
+				 
+				 request.setAttribute("songDetails", songDetails);
+				 
+				 RequestDispatcher dis = request.getRequestDispatcher("uploadMusic.jsp");
+				 dis.forward(request, response);
+			 }else {
+				 
+				 List<Songs> songDetails = MusicDBUtil.searchSongs(song);
+				 request.setAttribute("songDetails", songDetails);
+				 
+				 RequestDispatcher dis = request.getRequestDispatcher("uploadMusic.jsp");
+				 dis.forward(request, response);
+			 }
 		
-			 
-			 List<Songs> songDetails = MusicDBUtil.getSongDetails();
-			 
-			 request.setAttribute("songDetails", songDetails);
-			 
-			 RequestDispatcher dis = request.getRequestDispatcher("uploadMusic.jsp");
-			 dis.forward(request, response);
+			
 		
 	}
 

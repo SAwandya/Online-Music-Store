@@ -18,8 +18,8 @@
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
-		  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-		    <a class="navbar-brand" href="#">Hidden brand</a>
+		  <div class="collapse navbar-collapse mx-4" id="navbarTogglerDemo01">
+		    <a class="navbar-brand" href="#">My Songs</a>
 		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 		      <li class="nav-item active">
 		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -31,21 +31,30 @@
 		        <a class="nav-link disabled" href="#">Disabled</a>
 		      </li>
 		    </ul>
-		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		    </form>
+		   
 		  </div>
 		</nav>
  	</div>
  	
- 	<div>
+ 	<div class="m-5 d-flex flex-row mb-2">
+ 		<h2>My Songs</h2>
+ 		<div class="mx-4">
+ 			<form action="Landing" mathod="post" class="form-inline my-2 my-lg-0 d-flex flex-row mb-2">
+		      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+		      <button class="btn btn-outline-success my-2 my-sm-0 mx-4" type="submit">Search</button>
+		    </form>
+ 		</div>
+ 		
+ 	</div>
+ 	
+ 	<div class="m-5">
  		<table class="table">
   <thead>
     <tr>
       <th scope="col">Id</th>
       <th scope="col">name of the song</th>
       <th scope="col">description</th>
+      <th scope="col">Update</th>
       <th scope="col">Delete</th>
     </tr>
   </thead>
@@ -56,20 +65,30 @@
       <td>${song.sid}</td>
       <td>${song.name}</td>
       <td>${song.description}</td>
+      
+      <td>
+		   <a href="http://localhost:8090/MusicStore/UpdateSongByArtist.jsp?id=${song.sid}">
+		   	<button type="button" class="btn btn-info">Update</button>
+		   </a>
+	   </td>
  
       <td>
       	<form method="post" action="DeleteSongServlet">
 	      <input type="hidden" name="sid" value="${song.sid}"/>
 	      <input type="submit" value="Delete" class="btn btn-danger">
 	    </form>      
-      </td>
+      </td>  
+      
     </tr>
     </c:forEach>
   </tbody>
 </table>
  	</div>
  	
- 	<a href="http://localhost:8090/MusicStore/uploadSongForm.jsp"><button type="button" class="btn btn-dark">Upload New Song</button></a>
+ 	<div class="m-4">
+ 		<a href="http://localhost:8090/MusicStore/uploadSongForm.jsp"><button type="button" class="btn btn-dark">Upload New Song</button></a>
+ 	</div>
+ 	
  
 </body>
 </html>

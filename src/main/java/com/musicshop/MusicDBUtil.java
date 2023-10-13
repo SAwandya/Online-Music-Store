@@ -414,4 +414,139 @@ public class MusicDBUtil {
 				
 				return isSuccess;
 			}
+			
+			public static boolean AddTerms(String des) {
+				
+				isSuccess = false;
+				
+				try {
+			        con = DBConnect.getConnection();
+			        stmt = con.createStatement();
+			        
+			        String sql = "INSERT INTO terms VALUES(0, '"+des+"', 1);";
+			        
+			        int rs = stmt.executeUpdate(sql);
+			        
+			        if (rs > 0) {
+			            isSuccess = true;
+			        } else {
+			            isSuccess = false;
+			        }
+			        
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    }
+			    
+			    return isSuccess;
+		
+			    }
+			
+			public static boolean deleteTerms(int terms) {
+				
+				boolean isSuccess = false;
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "DELETE FROM terms WHERE tid='"+terms+"'";
+					int rs = stmt.executeUpdate(sql);
+					
+					if(rs > 0) {
+						
+						isSuccess = true;
+					}else {
+						
+						isSuccess = false;
+					}
+					
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			}
+			
+			public static boolean updateSong(int id, String description, String song) {
+				
+				boolean isSuccess = false;
+				
+				try {
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "update songs set description='"+description+"', name='"+song+"' where sid="+id+"";
+					
+					int rs = stmt.executeUpdate(sql);
+					
+					if(rs > 0) {
+						isSuccess = true;
+					}else {
+						isSuccess = false;
+					}
+					
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			}
+			
+			public static boolean deleteFromLibraryByArtist(int sid) {
+				
+				boolean isSuccess = false;
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "DELETE FROM download WHERE sid="+sid+";";
+					int rs = stmt.executeUpdate(sql);
+					
+					if(rs > 0) {
+						
+						isSuccess = true;
+					}else {
+						
+						isSuccess = false;
+					}
+					
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			
+			}
+			
+			
+			public static List<Songs> searchSongs(String search){
+				
+				ArrayList<Songs> song = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * FROM songs WHERE name LIKE '%"+search+"%'";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int sid = rs.getInt(1);
+						String name = rs.getString(2);
+						String des = rs.getString(7);
+						
+						Songs s = new Songs(sid, name, des);
+						
+						song.add(s);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return song;
+			}
 		}

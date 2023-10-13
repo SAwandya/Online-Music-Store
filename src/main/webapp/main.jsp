@@ -54,7 +54,7 @@
 		      	
 		      	<c:if test="${empty sessionScope.customerList}">
 			      	<li class="nav-item"> 
-			          <a aria-current="page" href="http://localhost:8090/MusicStore/RegisterForm.jsp"><button type="button" id="regButton" class="btn btn-light">Register</button></a>
+			          <a aria-current="page" href="http://localhost:8090/MusicStore/RegisterForm.jsp"><button type="button" id="regButton" class="btn btn-light mx-3">Register</button></a>
 			        </li>
 		        </c:if>
 		        

@@ -7,28 +7,24 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/DeleteSongServlet")
-public class DeleteSongServlet extends HttpServlet {
+@WebServlet("/DeleteTerms")
+public class DeleteTerms extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String sid = request.getParameter("sid");
+		String tid = request.getParameter("tid");
 		
-		int convertedId = Integer.parseInt(sid);
+		int convertedId = Integer.parseInt(tid);
 		
 		boolean isTrue;
-		boolean isTrue1;
 		
-		isTrue1 = MusicDBUtil.deleteFromLibraryByArtist(convertedId);
-		isTrue = MusicDBUtil.deleteSong(convertedId);
-		
+		isTrue = MusicDBUtil.deleteTerms(convertedId);
 		
 		if(isTrue == true) {
 			
-			response.sendRedirect(request.getContextPath() + "/Landing");
+			response.sendRedirect(request.getContextPath() + "/GetArtistsServlet");
 	
 		}else {
 			
