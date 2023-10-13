@@ -312,4 +312,106 @@ public class MusicDBUtil {
 				
 				return AllArtists;
 			}
+			
+			public static boolean updateArtist(int id, String name, String username, String password ) {
+				
+				boolean isSuccess = false;
+				
+				try {
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "update artist set name='"+name+"', username='"+username+"', password='"+password+"' where aid="+id+";";
+					
+					int rs = stmt.executeUpdate(sql);
+					
+					if(rs > 0) {
+						isSuccess = true;
+					}else {
+						isSuccess = false;
+					}
+					
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			}
+			
+			public static boolean insertArtist(String name, String username, String password) {
+				
+				isSuccess = false;
+				
+				try {
+			        con = DBConnect.getConnection();
+			        stmt = con.createStatement();
+			        
+			        String sql = "INSERT INTO artist VALUES(0, '"+username+"', '"+name+"', '"+password+"', 1);";
+			        
+			        int rs = stmt.executeUpdate(sql);
+			        
+			        if (rs > 0) {
+			            isSuccess = true;
+			        } else {
+			            isSuccess = false;
+			        }
+			        
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    }
+			    
+			    return isSuccess;
+		
+			    }
+			public static List<Terms> getAllterms(){
+				
+				ArrayList<Terms> AllTerms = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * From terms;";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int tid = rs.getInt(1);
+						String des = rs.getString(2);
+						
+						Terms all = new Terms(tid, des);
+						
+						AllTerms.add(all);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return AllTerms;
+			}
+			
+			public static boolean updateTerms(int id, String description) {
+				
+				boolean isSuccess = false;
+				
+				try {
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "update terms set description='"+description+"' where tid="+id+"";
+					
+					int rs = stmt.executeUpdate(sql);
+					
+					if(rs > 0) {
+						isSuccess = true;
+					}else {
+						isSuccess = false;
+					}
+					
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			}
 		}

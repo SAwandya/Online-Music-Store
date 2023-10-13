@@ -40,39 +40,71 @@
  	</div>
  	
  	<div>
- 		<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">name</th>
-      <th scope="col">username</th>
-      <th scope="col">password</th>
-      <th scope="col">Delete</th>
-      <th scope="col">Update</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-  	<c:forEach var="artist" items="${allArtist}">
-    <tr>
-      <td>${artist.id}</td>
-      <td>${artist.name}</td>
-      <td>${artist.username}</td>
- 	  <td>${artist.password}</td>
- 
-      <td>
-      	<form method="post" action="DeleteSongServlet">
-	      <input type="hidden" name="sid" value="${song.sid}"/>
-	      <input type="submit" value="Delete" class="btn btn-danger">
-	    </form>      
-      </td>
-    </tr>
-    </c:forEach>
-  </tbody>
-</table>
+	 <table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">Id</th>
+	      <th scope="col">name</th>
+	      <th scope="col">username</th>
+	      <th scope="col">password</th>
+	      <th scope="col">Update</th>
+	      
+	    </tr>
+	  </thead>
+	  <tbody>
+	  
+	  	<c:forEach var="artist" items="${allArtist}">
+	    <tr>
+	      <td>${artist.id}</td>
+	      <td>${artist.name}</td>
+	      <td>${artist.username}</td>
+	 	  <td>${artist.password}</td>
+	      
+	      	<td>
+	            <a href="http://localhost:8090/MusicStore/UpdateArtist.jsp?id=${artist.id}">
+	                <button type="button" class="btn btn-danger">Update</button>
+	            </a>
+	        </td>
+	    </tr>
+	    </c:forEach>
+	  </tbody>
+	</table>
  	</div>
  	
- 	<a href="http://localhost:8090/MusicStore/uploadSongForm.jsp"><button type="button" class="btn btn-dark">Upload New Song</button></a>
+ 	<a href="http://localhost:8090/MusicStore/AddArtist.jsp"><button type="button" class="btn btn-dark">Add new artist</button></a>
  
+ 
+ 	
+ 	<div>
+	 <table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">Id</th>
+	      <th scope="col">Description</th>
+	      
+	    </tr>
+	  </thead>
+	  <tbody>
+	  
+	  	<c:forEach var="term" items="${allTerms}">
+		    <tr>
+		      <td>${term.tid}</td>
+		      <td>${term.description}</td>
+		      
+		      
+		      	<td>
+		            <a href="http://localhost:8090/MusicStore/UpdateTerms.jsp?id=${term.tid}">
+		                <button type="button" class="btn btn-danger">Update</button>
+		            </a>
+		        </td>
+		    </tr>
+	    </c:forEach>
+	    
+	    
+	  </tbody>
+	</table>
+ 	</div>
+ 	
+ 	<a href="http://localhost:8090/MusicStore/AddArtist.jsp"><button type="button" class="btn btn-dark">Add new artist</button></a>
 </body>
 </html>

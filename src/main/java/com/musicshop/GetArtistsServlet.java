@@ -17,8 +17,10 @@ public class GetArtistsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Artists> allArtist = MusicDBUtil.getAllArtists();
+		List<Terms> allTerms = MusicDBUtil.getAllterms();
 		
 		request.setAttribute("allArtist", allArtist);
+		request.setAttribute("allTerms", allTerms);
 		
 		RequestDispatcher dis = request.getRequestDispatcher("AdminDashboard.jsp");
 		dis.forward(request, response);
