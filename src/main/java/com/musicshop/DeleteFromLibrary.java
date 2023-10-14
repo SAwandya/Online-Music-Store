@@ -44,7 +44,11 @@ public class DeleteFromLibrary extends HttpServlet {
 	        			RequestDispatcher dispatcher = request.getRequestDispatcher("Unsuccess.jsp");
 	        			dispatcher.forward(request, response);
 	        		}
-	            }}
+	            }}else {
+	            	
+	            	RequestDispatcher dispatcher = request.getRequestDispatcher("Unsuccess.jsp");
+        			dispatcher.forward(request, response);
+	            }
 		
 		
 	}

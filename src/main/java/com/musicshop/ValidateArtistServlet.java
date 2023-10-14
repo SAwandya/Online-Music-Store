@@ -30,7 +30,7 @@ public class ValidateArtistServlet extends HttpServlet {
 			
 			session.setAttribute("ArtistsList", Artists);
 			
-			response.sendRedirect(request.getContextPath() + "/GetArtistsServlet");
+			response.sendRedirect(request.getContextPath() + "/Landing");
 		}else {
 			
 			errorMessage += "username or password incorrect!!<br>";

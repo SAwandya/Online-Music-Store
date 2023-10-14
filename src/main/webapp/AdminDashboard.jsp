@@ -22,14 +22,9 @@
 		    <a class="navbar-brand" href="http://localhost:8090/MusicStore/GetArtistsServlet">Admin Dashboard</a>
 		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="http://localhost:8090/MusicStore/main">Home Page</a>
 		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Link</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link disabled" href="#">Disabled</a>
-		      </li>
+		     
 		    </ul>
 		    
 		  </div>
@@ -75,7 +70,11 @@
 	            </a>
 	        </td>
 	        <td>
-	        	<input type="submit" value="Delete" class="btn btn-danger"/>
+	        	<form method="post" action="deleteArtistServlet">
+	        		<input type="hidden" name="aid" value="${artist.id}">
+	        		<input type="submit" value="Delete" class="btn btn-danger"/>
+	        	</form>
+	        	
 	        </td>
 	    </tr>
 	    </c:forEach>

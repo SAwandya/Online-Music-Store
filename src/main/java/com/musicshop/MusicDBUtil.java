@@ -48,7 +48,7 @@ public class MusicDBUtil {
 				
 				con = DBConnect.getConnection();
 				stmt = con.createStatement();
-				String sql = "SELECT * FROM songs";
+				String sql = "SELECT * FROM songs ";
 				rs = stmt.executeQuery(sql);
 				
 				while(rs.next()) {
@@ -659,4 +659,176 @@ public class MusicDBUtil {
 				
 				return artist;
 			}
+			
+			public static List<Songs> getSongToArtist(int aid){
+				
+				ArrayList<Songs> song = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * FROM songs WHERE aid='"+aid+"'";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int sid = rs.getInt(1);
+						String name = rs.getString(2);
+						String des = rs.getString(7);
+						
+						Songs s = new Songs(sid, name, des);
+						
+						song.add(s);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return song;
+			}
+			
+			public static List<Songs> searchSongsByArtist(String search, int id){
+				
+				ArrayList<Songs> song = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "SELECT * FROM songs WHERE name LIKE '%"+search+"%' AND aid='"+id+"'";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int sid = rs.getInt(1);
+						String name = rs.getString(2);
+						String des = rs.getString(7);
+						
+						Songs s = new Songs(sid, name, des);
+						
+						song.add(s);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return song;
+				
+			}
+			
+			public static boolean deleteArtist(int aid) {
+				
+				boolean isSuccess = false;
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "DELETE FROM artist WHERE aid="+aid+";";
+					int rs = stmt.executeUpdate(sql);
+					
+					if(rs > 0) {
+						
+						isSuccess = true;
+					}else {
+						
+						isSuccess = false;
+					}
+					
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			
+			}
+			
+			public static boolean deleteSongByAdmin(int aid) {
+				
+				boolean isSuccess = false;
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "DELETE FROM songs WHERE aid="+aid+";";
+					int rs = stmt.executeUpdate(sql);
+					
+					if(rs > 0) {
+						
+						isSuccess = true;
+					}else {
+						
+						isSuccess = false;
+					}
+					
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			
+			}
+			
+			public static boolean deleteSongFromDownloadByAdmin(int sid) {
+				
+				boolean isSuccess = false;
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "DELETE FROM download WHERE sid="+sid+";";
+					int rs = stmt.executeUpdate(sql);
+					
+					if(rs > 0) {
+						
+						isSuccess = true;
+					}else {
+						
+						isSuccess = false;
+					}
+					
+				}catch(Exception e) {
+					
+					e.printStackTrace();
+				}
+				
+				return isSuccess;
+			
+			}
+			
+			public static List<Songs> getFromDownAndSongs(int aid){
+				
+				ArrayList<Songs> song = new ArrayList<>();
+				
+				try {
+					
+					con = DBConnect.getConnection();
+					stmt = con.createStatement();
+					String sql = "select s.sid, s.name, s.description from download d, songs s where d.sid = s.sid and s.aid ="+aid+";";
+					rs = stmt.executeQuery(sql);
+					
+					while(rs.next()) {
+						int sid = rs.getInt(1);
+						String name = rs.getString(2);
+						String des = rs.getString(3);
+						
+						Songs s = new Songs(sid, name, des);
+						
+						song.add(s);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
+				return song;
+				
+			}
+			
+			
 		}
