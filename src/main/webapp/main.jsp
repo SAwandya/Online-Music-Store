@@ -23,7 +23,7 @@
 		<nav class="mainnav shadow navbar-expand-lg navbar navbar-dark bg-dark fixed-top" style="min-width: 350px">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="#">
-		    	<i class="bi bi-soundwave"></i> Music store
+		    	<i><link rel="icon" type="image/png" href="./images/blackball.png"></i>
 		    	
 		    </a>
 
@@ -131,7 +131,7 @@
 				  		<div class="song-small m-1 ms-4 col-md-6 row align-items-center" >
 				  			<div class="col-1 h3">${song.sid}</div>
 				  			<div class="col d-flex">
-				  				<img class="song-small-img rounded m-1" src="images/06.jpg" >
+				  				<img class="song-small-img rounded m-1" src="./images/mainphoto.jpg" >
 				  				<div class="ms-1">
 				  					<div>${song.name}</div>
 						  			<small>${song.description}</small>
@@ -167,7 +167,7 @@
 			<c:forEach var="allsong" items="${AllSongs}">
 				<div class="m-4" style="width: 200px;">
 					<div style="position: relative;">
-						<img src="images/04.jpg" class="big-song-img rounded img-fluid" >
+						<img src="images/sdmusic.png" class="big-song-img rounded img-fluid" >
 						<a href="#">
 							<div class="big-song-hover " >
 								<i class="h1 bi bi-play"></i>

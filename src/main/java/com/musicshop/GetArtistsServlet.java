@@ -23,6 +23,7 @@ public class GetArtistsServlet extends HttpServlet {
 			
 			List<Artists> allArtist = MusicDBUtil.getAllArtists();
 			request.setAttribute("allArtist", allArtist);
+			
 		}else {
 			List<Artists> allArtist = MusicDBUtil.searchArtists(search);
 			request.setAttribute("allArtist", allArtist);

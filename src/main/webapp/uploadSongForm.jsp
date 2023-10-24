@@ -23,18 +23,18 @@
 	              <form action="UploadMusicServlet" method="post">
 	
 	                <div class="form-outline mb-4">
-	                  <input type="text" id="form3Example1cg" name="name" class="form-control form-control-lg" />
+	                  <input type="text" id="form3Example1cg" name="name" class="form-control form-control-lg" required/>
 	                  <label class="form-label" for="form3Example1cg">Enter song name</label>
 	                </div>
 	
 	                <div class="form-outline mb-4">
-	                  <input type="text" id="form3Example3cg" name="category" class="form-control form-control-lg" />
+	                  <input type="text" id="form3Example3cg" name="category" class="form-control form-control-lg" required/>
 	                  <label class="form-label" for="form3Example3cg">Enter category</label>
 	                </div>
 	                
 	                <div class="mb-3">
 					  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-					  <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+					  <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
 					</div>	
 	
 	                <div class="d-flex justify-content-center">

@@ -25,6 +25,9 @@
 				
 						<% 
 						    String id = request.getParameter("id");
+							String name = request.getParameter("name");
+							String username = request.getParameter("username");
+							String password = request.getParameter("password");
 						%>  
 							            
 	              <div class="form-outline form-white mb-4">
@@ -34,22 +37,23 @@
 	        
 	
 	              <div class="form-outline form-white mb-4">
-	                <input type="text" name="name" id="typeEmailX" class="form-control form-control-lg" />
+	                <input type="text" name="name" id="typeEmailX" value="<%= name %>" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typeEmailX">name</label>
 	              </div>
 	
 	              <div class="form-outline form-white mb-4">
-	                <input type="text" name="username" id="typePasswordX" class="form-control form-control-lg" />
+	                <input type="text" name="username" id="typePasswordX" value="<%= username %>" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typePasswordX">Username</label>
 	              </div>
 	
 	              <div class="form-outline form-white mb-4">
-	                <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
+	                <input type="text" name="password" id="typePasswordX" value="<%= password %>" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typePasswordX">Password</label>
 	              </div>
 	
 					
 	      			<input class="btn btn-outline-light btn-lg px-5" type="submit" name="sid" value="Submit"/>
+	      			<a href="http://localhost:8090/MusicStore/GetArtistsServlet"><button class="btn btn-outline-light btn-lg px-5"/>Back</button></a>
 				</form>
 	
 	            </div>

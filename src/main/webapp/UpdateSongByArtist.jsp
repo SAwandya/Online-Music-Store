@@ -28,18 +28,18 @@
 						%>  
 							            
 	              <div class="form-outline form-white mb-4">
-	                <input type="text" readonly name="aid" id="typeEmailX" value="<%= id %>" class="form-control form-control-lg" />
+	                <input type="text" readonly name="aid" id="typeEmailX" value="<%= id %>" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typeEmailX">Id</label>
 	              </div>
 	        
 	
 	              <div class="form-outline form-white mb-4">
-	                <input type="text" name="name" id="typeEmailX" class="form-control form-control-lg" />
+	                <input type="text" name="name" id="typeEmailX" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typeEmailX">name</label>
 	              </div>
 	
 	              <div class="form-outline form-white mb-4">
-	                <input type="text" name="description" id="typePasswordX" class="form-control form-control-lg" />
+	                <input type="text" name="description" id="typePasswordX" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typePasswordX">description</label>
 	              </div>
 	

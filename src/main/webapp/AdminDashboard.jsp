@@ -65,7 +65,7 @@
 	 	  <td>${artist.password}</td>
 	      
 	      	<td>
-	            <a href="http://localhost:8090/MusicStore/UpdateArtist.jsp?id=${artist.id}">
+	            <a href="http://localhost:8090/MusicStore/UpdateArtist.jsp?id=${artist.id}&name=${artist.name}&username=${artist.username}&password=${artist.password}">
 	                <button type="button" class="btn btn-info">Update</button>
 	            </a>
 	        </td>
@@ -115,7 +115,7 @@
 		      
 		      
 		      	<td>
-		            <a href="http://localhost:8090/MusicStore/UpdateSongByArtist.jsp?id=${term.tid}">
+		            <a href="http://localhost:8090/MusicStore/UpdateTerms.jsp?id=${term.tid}&des=${term.description}&">
 		                <button type="button" class="btn btn-info">Update</button>
 		            </a>
 		        </td>

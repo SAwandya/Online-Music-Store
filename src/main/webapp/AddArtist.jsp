@@ -23,22 +23,22 @@
 	        
 				<form method="post" action="AddArtistServlet">
 	              <div class="form-outline form-white mb-4">
-	                <input type="text" name="name" id="typeEmailX" class="form-control form-control-lg" />
+	                <input type="text" name="name" id="typeEmailX" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typeEmailX">name</label>
 	              </div>
 	
 	              <div class="form-outline form-white mb-4">
-	                <input type="text" name="username" id="typePasswordX" class="form-control form-control-lg" />
+	                <input type="text" name="username" id="typePasswordX" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typePasswordX">Username</label>
 	              </div>
 	
 	              <div class="form-outline form-white mb-4">
-	                <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
+	                <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" required/>
 	                <label class="form-label" for="typePasswordX">Password</label>
 	              </div>
 	
 					
-	      			<input class="btn btn-outline-light btn-lg px-5" type="submit" name="submit" value="Submit"/>
+	      			<input class="btn btn-outline-light btn-lg px-5" type="submit" name="submit" value="Submit" required/>
 				</form>
 	
 	            </div>

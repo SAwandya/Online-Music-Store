@@ -12,11 +12,11 @@
 <body>
 
 	<section class="vh-100" style="background-color: #eee;">
-  <div class="container h-100">
+  <div class="container h-60">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
+      <div class="col-lg-5 col-xl-9 mt-3">
         <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
+          <div class="card-body p-md-1">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 				
@@ -70,23 +70,29 @@
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 ">
-                    <input type="submit" value="Register" class="btn btn-primary btn-lg"/>
+                    <input type="submit" value="Register" class="btn btn-primary btn-lg mx-2"/>
                     
+                    
+                  	 
+                	
                   </div>
 					
                 </form>
+                <div class="m-3">
+              	<a href="http://localhost:8090/MusicStore/main"><button class="btn btn-info"/>Home</button></a>
+              </div>
                 
-                <form method="get" action="#">
-                   <input type="submit" value="Home" class="btn btn-info"/>
-                </form>
 
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+				
+				
+                <img src="./images/sdmusic.png"
                   class="img-fluid" alt="Sample image">
 
               </div>
+              
+              
             </div>
           </div>
         </div>

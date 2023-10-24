@@ -25,6 +25,7 @@
 				
 						<% 
 						    String id = request.getParameter("id");
+							String des = request.getParameter("des");
 						%>  
 							            
 	              <div class="form-outline form-white mb-4">
@@ -33,11 +34,12 @@
 	              </div>
 	              
 	              <div class="form-outline">
-					 <textarea class="form-control" name="area" id="textAreaExample1" rows="4"></textarea>
+					 <textarea class="form-control" name="area" id="textAreaExample1" rows="4" required><%= des %></textarea>
 					 <label class="form-label" for="textAreaExample">Message</label>
 				</div>
 						
 	      			<input class="btn btn-outline-light btn-lg px-5" type="submit" name="sid" value="Submit"/>
+	      			<a href="http://localhost:8090/MusicStore/GetArtistsServlet"><button class="btn btn-outline-light btn-lg px-5"/>Back</button></a>
 				</form>
 	
 	            </div>

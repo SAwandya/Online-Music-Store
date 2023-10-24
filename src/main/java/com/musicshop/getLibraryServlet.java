@@ -54,11 +54,6 @@ public class getLibraryServlet extends HttpServlet {
             	
             }
         
-		
-		
-		 
-		 
-		
 		 
 		 if (customerList != null) {
 	        
